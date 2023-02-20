@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{blindtext}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+
+\title{
+
+\begin{center} \textbf{Quant Curriculum Week 1:}
+
+Counting and Probability Fundamentals \end{center}
+}
+
+\author{Jonathan Qin}
+\date{February 16, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction to Curriculum}
+
+\begin{Thinking and Problem Solving}
+
+Talented quants have a plethora of choices when it comes to career paths, each with its own unique set of required skills. However, for quant trader, researcher, and dev interviews alike, a universal theme is a strong mathematical background and problem-solving intuition. This is no surprise, as these qualities translate naturally into programming and financial analysis. The goal of the curriculum will be to introduce and build the knowledge and problem-solving skills that will help you stand out from the competition. 
+
+\end{Thinking and Problem Solving}
+
+\paragraph{General Principles for Problem Solving during Interviews}
+\begin{itemize}
+    \item Build a broad knowledge base
+    \item Listen carefully, look for clues 
+    \item Verbalize and rationalize 
+    \item Make reasonable assumptions
+\end{itemize}
+
+\paragraph{Problem 1.1} Dropping Eggs
+\newline
+\newline
+A building has 100 floors. One of the floors is the highest floor an egg can be dropped from without breaking.
+If an egg is dropped from above that floor, it will break. If it is dropped from that floor or below, it will be completely undamaged, and you can drop the egg again. Given two eggs, find the highest floor where an egg can be dropped without breaking with as few drops as possible. 
+\newline
+\newline
+\newline
+\newline
+
+\section{Introduction to Counting and Probability}
+
+Often in problem-solving, there will be a need to count possible outcomes and compute their probabilities. Being able to compute fast (as a human) is critical in making fast decisions, creative problem solving, and writing sleek code.
+
+\paragraph{Problem 2.1} Counting Numbers (2006 AMC 10A Problem 21)
+\newline
+\newline
+How many four-digit positive integers have at least one digit that is a $2$ or a $3$?
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\subsection{Three Fundamental Counting Techniques}
+\newline
+There are three fundamental counting techniques: constructive counting, casework, and complementary counting.
+\newline \begin{enumerate}
+
+\item{\textbf{Constructive Counting:} a counting technique that involves constructing an item belonging to a set. Along with the construction, one counts the total possibilities of each step and assembles these to enumerate the full set.}
+
+\item{\textbf{Counting by Casework:} a counting method that involves splitting a problem into several parts, counting these parts individually, then adding together the totals of each part.}
+
+\item{\textbf{Complementary Counting:} a counting strategy for counting where you count what you don't want and subtract that from the total number of possibilities to arrive at the answer. More formally, if $B$ is a subset of $A$, complementary counting exploits the property that $|B| = |A| - |B^c|$, where $B^c$ is the complement of $B$. \textbf{Complementary probability} is the probability equivalent.}
+
+\end{enumerate}
+\newline
+\newline
+\paragraph{Problem 2.2} License Plates (2002 AIME I Problem 1)
+\newline
+\newline
+Many states use a sequence of three letters followed by a sequence of three digits as their standard license-plate pattern. Given that each three-letter three-digit arrangement is equally likely, the probability that such a license plate will contain at least one palindrome (a three-letter arrangement or a three-digit arrangement that reads the same left-to-right as it does right-to-left) is $\dfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n.$
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\subsection{Common Counting Strategies}
+\begin{enumerate}
+\item{\textbf{Principle of Inclusion Exclusion:} an organized method/formula to find the number of elements in the union of a given group of sets, the size of each set, and the size of all possible intersections among the sets.
+
+\item{\textbf{Pigeonhole Principle:} if $n+1$ or more pigeons are placed into $n$ holes, one hole must contain two or more pigeons.
+
+\end{enumerate}
+
+
+\paragraph{Problem 2.3} Handshakes 
+\newline
+\newline
+There are $n$ guests at party. Guests shake hands when they meet other guests. Some might be more social and shake hands with a lot of other guests, while others may be less social and shake hands with few or no other guests. Prove that there must be at least two guests with the same number of handshakes at the party?
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\paragraph{Problem 2.4 (Hard)} Sitting Order (2020 AIME II Problem 9)
+\newline
+\newline
+While watching a show, Ayako, Billy, Carlos, Dahlia, Ehuang, and Frank sat in that order in a row of six chairs. During the break, they went to the kitchen for a snack. When they came back, they sat on those six chairs in such a way that if two of them sat next to each other before the break, then they did not sit next to each other after the break. Find the number of possible seating orders they could have chosen after the break.
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+
+test case update
+
+\end{document}
