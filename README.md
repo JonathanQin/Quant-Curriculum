@@ -4,4 +4,4 @@ Biweekly curriculum notes authored by Jonathan Qin for USC's Quant SC curriculum
 
 Week 1/2 - Counting and Probability Theory
 
-Week 2 - 
+Week 3/4 -  
