@@ -2,10 +2,12 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{blindtext}
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
+\usepackage{enumitem}
+
 
 \title{
 
-\begin{center} \textbf{Quant Curriculum Week 1:}
+\begin{center} \textbf{Quant Curriculum Week 1}
 
 Counting and Probability Fundamentals \end{center}
 }
@@ -43,18 +45,14 @@ If an egg is dropped from above that floor, it will break. If it is dropped from
 \newline
 \newline
 
-\section{Introduction to Counting and Probability}
+\section{Counting Strategies}
 
-Often in problem-solving, there will be a need to count possible outcomes and compute their probabilities. Being able to compute fast (as a human) is critical in making fast decisions, creative problem solving, and writing sleek code.
+Often in problem-solving, there will be a need to count possible outcomes and compute their probabilities. Being able to compute fast (as a human) is critical in making fast decisions, creative problem solving, and writing sleek code. Therefore, we will first cover some elegant ways to compute the size of sets of interest.
 
 \paragraph{Problem 2.1} Counting Numbers (2006 AMC 10A Problem 21)
 \newline
 \newline
 How many four-digit positive integers have at least one digit that is a $2$ or a $3$?
-\newline
-\newline
-\newline
-\newline
 \newline
 \newline
 \newline
@@ -79,10 +77,6 @@ Many states use a sequence of three letters followed by a sequence of three digi
 \newline
 \newline
 \newline
-\newline
-\newline
-\newline
-\newline
 \subsection{Common Counting Strategies}
 \begin{enumerate}
 \item{\textbf{Principle of Inclusion Exclusion:} an organized method/formula to find the number of elements in the union of a given group of sets, the size of each set, and the size of all possible intersections among the sets.
@@ -99,11 +93,6 @@ There are $n$ guests at party. Guests shake hands when they meet other guests. S
 \newline
 \newline
 \newline
-\newline
-\newline
-\newline
-\newline
-\newline
 \paragraph{Problem 2.4 (Hard)} Sitting Order (2020 AIME II Problem 9)
 \newline
 \newline
@@ -111,12 +100,38 @@ While watching a show, Ayako, Billy, Carlos, Dahlia, Ehuang, and Frank sat in th
 \newline
 \newline
 \newline
-\newline
-\newline
-\newline
-\newline
-\newline
+\subsection{Advanced Counting Strategies}
+\begin{enumerate}
+\item{\textbf{Correspondence:} a relation between two sets such that each member in one set corresponds to $n$ members in the other set, where $n$ commonly equals $1$
 
-test case update
+\item{\textbf{Generating Functions:} creating a power series whose coefficients, $c_0, c_1, c_2, \ldots$, give the terms of a sequence which is of interest. Therefore the power series (i.e. the generating function) is $c_0 + c_1 x + c_2 x^2 + \cdots$ and the sequence is $c_0, c_1, c_2,\ldots$
 
+\item{\textbf{Recursion:} defining something (usually a sequence or function) in terms of previously defined values
+\newline
+\newline
+\end{enumerate}
+\paragraph{Problem 2.5} Distributing Cookies
+\begin{enumerate} [label=\alph*)]
+    \item In how many different ways can eight identical cookies be distributed among three distinct children?
+    \item How many ways can the candy be distributed if each child receives at least two but no more than four cookies?
+\end{enumerate}
+\newline
+\newline
+\newline
+\paragraph{Problem 2.5} Meme Stock
+\begin{enumerate} [label=\alph*)]
+    \item Jonathan's owns a meme-stock with behavior modeled by the function $f(t)$, which denotes the price at time $t = 0, 1, \ldots , n$
+    \begin{equation}
+        \(f(t) = 2f(t-1) + 5f(t-2)\)
+    \end{equation}
+    Given that the stock IPO was at \(f(0) = 1\) and rose to price \(f(1) = 8\), can you write a program or compute by hand \(f(10)\)?
+    \item Is there a program that calculates \(f(t)\) for any \(t\) in \(O(1)\)? 
+    \item What about for any \(f(t)\) in the form 
+    \begin{equation}
+        \(f(t) = c_1f(t-1) + c_2f(t-2)\)
+    \end{equation}
+    with known \(f(1)\) and \(f(0)\)?
+\newline
+\newline
+\newline
 \end{document}
