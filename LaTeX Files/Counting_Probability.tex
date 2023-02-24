@@ -21,15 +21,10 @@ Counting and Probability Fundamentals \end{center}
 
 \section{Introduction to Curriculum}
 
-\begin{Thinking and Problem Solving}
+Often during the recruiting process, you will be tested with a mysterious technical interview that you aren't sure how to prepare for (especially for quant related positions). However, a universal skill required for quant trader, researcher, and dev interviews alike is a strong mathematical background and problem-solving intuition. This is no surprise, as these qualities translate naturally into programming and trading. In fact, quant firms rarely expect any in depth finance knowledge, and put new hires through rigorous trading bootcamps regardless. The goal of the curriculum will be to introduce and build the mathematical knowledge and problem solving skills needed for any technical interview. 
 
-Talented quants have a plethora of choices when it comes to career paths, each with its own unique set of required skills. However, for quant trader, researcher, and dev interviews alike, a universal theme is a strong mathematical background and problem-solving intuition. This is no surprise, as these qualities translate naturally into programming and financial analysis. The goal of the curriculum will be to introduce and build the knowledge and problem-solving skills that will help you stand out from the competition. 
-
-\end{Thinking and Problem Solving}
-
-\paragraph{General Principles for Problem Solving during Interviews}
+\subsection{General Principles for Problem Solving during Interviews}
 \begin{itemize}
-    \item Build a broad knowledge base
     \item Listen carefully, look for clues 
     \item Verbalize and rationalize 
     \item Make reasonable assumptions
@@ -40,7 +35,6 @@ Talented quants have a plethora of choices when it comes to career paths, each w
 \newline
 A building has 100 floors. One of the floors is the highest floor an egg can be dropped from without breaking.
 If an egg is dropped from above that floor, it will break. If it is dropped from that floor or below, it will be completely undamaged, and you can drop the egg again. Given two eggs, find the highest floor where an egg can be dropped without breaking with as few drops as possible. 
-\newline
 \newline
 \subsection{Old Mission Capital Problems}
 \begin{enumerate}
@@ -106,7 +100,7 @@ Many states use a sequence of three letters followed by a sequence of three digi
 \paragraph{Problem 2.4} Handshakes 
 \newline
 \newline
-There are $n$ guests at party. Guests shake hands when they meet other guests. Some might be more social and shake hands with a lot of other guests, while others may be less social and shake hands with few or no other guests. Prove that there must be at least two guests with the same number of handshakes at the party?
+There are $n$ guests at party. Guests shake hands when they meet other guests. Some might be more social and shake hands with a lot of other guests, while others may be less social and shake hands with few or no other guests. Should there be at least two guests with the same number of handshakes at the party?
 \newline
 \newline
 \newline
@@ -153,23 +147,23 @@ While watching a show, Ayako, Billy, Carlos, Dahlia, Ehuang, and Frank sat in th
 \newline
 \newline
 
-\section{Probability Theory}
+\section{Introduction to Probability Theory}
 
 Computing probabilities of outcomes is another common problem. We define:
 \begin{enumerate}
     \item Sample space $S$: set of all possible outcomes
     \item Event: particular set of outcomes in the sample space
-    \item Mutually exclusive: $A \cap B = \emptyset$
+    \item Mutually exclusive: $A \cap B = \emptyset$ and \(P(A\cup B) = P(A) + P(B)\)
     \item Independent: \(P(A)P(B) = P(AB)\)
     \item Conditional Probability: \(P(B|A) = \frac{P(AB)}{P(A)}\)
-    \item Bayes Theorem: \(P(A|B)= \frac{P(A)P(B|A)}{P(B}\)
+    \item Bayes Theorem: \(P(A|B)= \frac{P(A)P(B|A)}{P(B)}\)
     \item Expectation: \(E[x] = \sum_{0}^{i}{p_ix_i\)
     \item Variance: \(Var(x) = E[(x-\mu)^2] = E[x^2] - (E[x])^2\)
 \end{enumerate}
 \paragraph{Problem 3.1} Sleeping in Class
 \newline
 \newline
-The probability Jonathan falls asleep during a two-hour class is \(\frac{3}{4}\). Jonathan is equally likely to fall asleep at any point in time, and once he falls asleep he will never wake up. What is the probability that Jonathan is asleep by the end of the first hour.
+The probability Jonathan falls asleep during a two-hour class is \(\frac{3}{4}\). Jonathan is equally likely to fall asleep at any point in time, and once he falls asleep he will never wake up. What is the probability that Jonathan is asleep by the end of the first hour?
 \newline
 \newline
 \paragraph{Problem 3.2} Caught Sleeping
@@ -178,6 +172,39 @@ The probability Jonathan falls asleep during a two-hour class is \(\frac{3}{4}\)
 Terry claims Jonathan fell asleep during class. Given that we know Jonathan has a \(\frac{1}{8}\) chance of falling asleep in class, and that Terry lies \(\frac{5}{6}\) of the time, what is the actual probability Jonathan fell asleep?
 \newline
 \newline
-\paragraph{Problem 3.2}
+\paragraph{Problem 3.3} Basketball Scores 
+\newline
+\newline
+A basketball player is taking 100 free throws. She scores one point if the ball passes through the hoop and 0 otherwise. She scored on her first throw and missed her second. For each following throw, her probability of making a point is the fraction of throws she has made so far. After 100 throws, what is the probability she has 50 points?
+\newline
+\newline
+\paragraph{Problem 3.4} Coin Toss Game
+\newline
+\newline
+Two players, A and B, alternatively toss a fair, with A going first. The game ends when a sequence of HT (head tails) appears, and the player who tosses the tails wins. What is the probability A wins the game?
+\newline
+\newline
+\paragraph{Problem 3.4} Breaking Sticks
+\newline
+\newline
+A stick is broken into 3 pieces, by randomly choosing two points along its unit length, and cutting it. What is the expected length of the middle part?
+\newline
+\newline
+\subsection{Rules of Expectation}
+\begin{enumerate}
+    \item{\textbf{Random Variable:} functions that map each outcome in a sample space to a set of real numbers.}
+
+    \item{\textbf{Linearity of Expectation:} property that the expected value of the sum of random variables is equal to the sum of their individual expected values, regardless of whether they are independent.}
+\end{enumerate}
+
+\newline
+\newline
+
+\paragraph{Problem 3.5} Breaking Sticks
+\newline
+\newline
+There are 26 black(B) and 26 red(R) cards in a standard deck. A run is number of blocks of consecutive cards of the same color. For example, a sequence RRRRBBBRBRB of only 11 cards has 6 runs; namely, RRRR, BBB, R, B, R, B. Find the expected number of runs in a shuffled deck of cards.
+\newline
+\newline
 
 \end{document}
