@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{blindtext}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+\usepackage{enumitem}
+
+
+\title{
+
+\begin{center} \textbf{Quant Curriculum Week 2}
+
+Probability Theory and Statistics \end{center}
+}
+
+\author{Jonathan Qin}
+\date{March 2, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Discrete and Continuous Distributions}
+
+\subsection{Motivation}
+We will begin by studying distribution functions widely used for quantitative modeling. Having a intuitive understanding of these functions and being able to discern the unique characteristics of a distribution is a valuable skill. 
+
+\subsection{Definitions}
+\begin{enumerate}
+    \item Random Variable: can be discrete or continuous
+    \item Cumulative distribution function: \(F(a) = P\{X \leq a\}\), \(\int_{-\infty}^{a} f(x) \,dx\)
+    \item Probability mass function: \(p(x) = P\{X=x\}\) 
+    \item Probability distribution function: \(f(x) = \frac{d}{dx}F(x)\)
+    \item Expected value: \(E[X] = \sum_{x:p(x)>0} xp(x)\), \(\int_{-\infty}^{\infty} xf(x) \,dx\)
+    \item Variance: \(var(X) = E[(X-E[X])^2] = E[X^2] - (E[X])^2\)
+\end{enumerate}
+
+\subsection{Discrete Random Variables}
+\begin{enumerate}
+    \item Uniform: \(P(x) = \frac{1}{b-a+1}\), \(E[X] = \frac{b+a}{2}\), \(var(X) = \frac{(b-a+1)^2 -1}{12}\)
+    \item Binomial: 
+    \item Poisson:
+    \item Geometric:
+    \item Negative Binomial:
+\end{enumerate}
+
+\subsection{Continuous Random Variables}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\end{document}
