@@ -32,15 +32,19 @@ We will begin by studying distribution functions widely used for quantitative mo
     \item Probability distribution function: \(f(x) = \frac{d}{dx}F(x)\)
     \item Expected value: \(E[X] = \sum_{x:p(x)>0} xp(x)\), \(\int_{-\infty}^{\infty} xf(x) \,dx\)
     \item Variance: \(var(X) = E[(X-E[X])^2] = E[X^2] - (E[X])^2\)
+    \item Bernoulli trial: random experiment with two possible outcomes (success/failure) of consistent probability
 \end{enumerate}
 
-\subsection{Discrete Random Variables}
+\subsection{Discrete / Continuous Random Variable Distributions}
+
 \begin{enumerate}
-    \item Uniform: \(P(x) = \frac{1}{b-a+1}\), \(E[X] = \frac{b+a}{2}\), \(var(X) = \frac{(b-a+1)^2 -1}{12}\)
-    \item Binomial: 
-    \item Poisson:
-    \item Geometric:
-    \item Negative Binomial:
+    \item Uniform: probability distributions with equally likely outcomes
+    \item Binomial (Discrete): probability distributions arising from several Bernoulli trials
+    \item Normal (Gaussian): continuous probability distribution associated with the Central Limit Theorem (often used for natural and social sciences)
+    \item Poisson (discrete): probability distribution expressing the probability of a given number of events occurring in a fixed interval of time given a known constant mean rate and independence
+    \item Gamma: a family of distributions related to the beta, exponential, and chi-squared distributions
+    \item Geometric (discrete): probability distribution of the number of Bernoulli trials to get one success  
+    \item Exponential: probability distribution of the time between events in a Poisson point process
 \end{enumerate}
 
 \subsection{Continuous Random Variables}
