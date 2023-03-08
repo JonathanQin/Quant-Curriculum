@@ -45,10 +45,24 @@ We will begin by studying distribution functions widely used for quantitative mo
     \item Gamma: a family of distributions related to the beta, exponential, and chi-squared distributions
     \item Geometric (discrete): probability distribution of the number of Bernoulli trials to get one success  
     \item Exponential: probability distribution of the time between events in a Poisson point process
+    \item Lognormal: random variables with the log being normally distributed
 \end{enumerate}
 
-\subsection{Continuous Random Variables}
+\subsection{Moments of Distributions}
+Moments of random variables describe quantitatively the shape of their distribution. For second and higher moments, the central moment (about the mean) is typically used to provide more meaningful information about the distribution's shape. If F is a cumulative probability distribution function, the n-th moment of the distribution is given by the Riemann-Stieltjes Integral:
+\[\mu'(n) = E[X^n] = \int_{-\infty}^{\infty} x^n \,dF(x)\]
+Furthermore, the Moment Generating Function is an alternative way to describe the distribution of a random variable. The Moment Generating Function of random variable \(X\), \(M_X(t)\), is given by:
+\[ M_X(t) = E[e^{tX}] \]
+The Moment Generating Function can be used to find the moments of a distribution, as \(M_X^(n)\) expanded becomes the series:
+\[ M_X(t) = E[e^{tX}] = 1 + tE(X) + \frac{t^2E(X^2)}{2!} + \frac{t^3E(X^3)}{3!} + \cdots\]
+Therefore, differentiating \(M_X(t)\) \(i\) times and setting \(t = 0\) will give the \(i\)th moment about the origin. A problem with moment-generating functions is that unlike characteristic functions (Fourier transform series), they may not exist for certain distributions, as the integral does not necessarily converge. However, it exists for almost all common distributions. 
+
+\paragraph{ First Moment }
+The 
+
+
 \begin{enumerate}
+    \item First Moment: Mean / Expected Value
     \item 
 \end{enumerate}
 
