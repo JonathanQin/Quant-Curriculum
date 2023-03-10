@@ -10,19 +10,62 @@ class SportsBracket:
             return
         self.n = num_teams
         self.rounds = 1
-        self.num_rounds = math.log(num_teams, 2)
+        self.num_rounds = int(math.log(num_teams, 2))
         team = {"id" : np.zeros((self.n)), "strength" : np.zeros((self.n))}
         self.team = pd.DataFrame.from_dict(team)
         self.team.reset_index()
         self.teams_in_play = self.team.index.tolist()
-
+        self.pwin = np.zeros((self.n, self.n))
+        self.roundwin = np.zeros((self.n, self.num_rounds))
+        self.totalwin = np.ones((self.n, self.num_rounds))
+        self.payout = np.zeros((self.n, self.num_rounds))
         self.generate_teams()
+        self.generate_probabilities()
                 
     def generate_teams(self):
         for i in self.teams_in_play:
             self.team["id"][i] = int(i + 1)
             self.team["strength"][i] = int(100 * random.randint(1, 8))
-    
+        # self.team["strength"][0] = 100
+        # self.team["strength"][1] = 400
+        # self.team["strength"][2] = 300 
+        # self.team["strength"][3] = 400
+        
+    def generate_probabilities(self):
+        played = np.zeros((self.n, self.n))
+        for i in self.teams_in_play:
+            for j in self.teams_in_play:
+                self.pwin[i][j] = (self.team["strength"][i]) / (self.team["strength"][i] + self.team["strength"][j])
+        for i in self.teams_in_play:
+            if i%2:
+                self.roundwin[i][0] = self.pwin[i][i-1]
+                played[i][i-1] = 1
+            else:
+                self.roundwin[i][0] = self.pwin[i][i+1]
+                played[i][i+1] = 1
+        for j in range(1, self.num_rounds):
+            for i in self.teams_in_play:
+                counter = math.pow(2, j+1)
+                res = int(i/counter)
+                a = int(res * counter)
+                b = int(a + counter)
+                for k in range(a, b):
+                    if i != k and played[i][k] == 0:
+                        self.roundwin[i][j] += self.roundwin[i][j-1] * self.roundwin[k][j-1] * self.pwin[i][k]
+                    played[i][k] = 1
+                # print(self.roundwin[i][j])
+        for i in self.teams_in_play:
+            print("Team {} has probability {} of winning!".format(i+1, self.roundwin[i][self.num_rounds-1]))
+            for j in range(0, self.num_rounds):
+                if j == 0:
+                    self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
+                else:
+                    self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
+                print("Payout for round {} is {}.".format(j, int(self.payout[i][j])))
+            print("\n")
+                
+            
+
     def print_teams(self):
         print("\nThere are {} teams in play!".format(len(self.team["id"])))
         for i in self.teams_in_play:
