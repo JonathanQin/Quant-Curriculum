@@ -28,7 +28,7 @@ class SportsBracket:
             self.team["strength"][i] = int(100 * random.randint(1, 8))
         # self.team["strength"][0] = 100
         # self.team["strength"][1] = 400
-        # self.team["strength"][2] = 300 
+        # self.team["strength"][2] = 300
         # self.team["strength"][3] = 400
         
     def generate_probabilities(self):
@@ -100,7 +100,7 @@ class SportsBracket:
         if self.rounds <= self.num_rounds:
             return True
         else:
-            print("Team {} has won the game!".format(int(self.teams_in_play[0])))
+            print("Team {} has won the game!".format(int(self.teams_in_play[0]) + 1))
             return False
 
 if __name__ == "__main__":
