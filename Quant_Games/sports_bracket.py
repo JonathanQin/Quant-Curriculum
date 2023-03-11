@@ -55,24 +55,27 @@ class SportsBracket:
                     played[i][k] = 1
                 # print(self.roundwin[i][j])
         for i in self.teams_in_play:
-            print("Team {} has probability {} of winning!".format(i+1, self.roundwin[i][self.num_rounds-1]))
+            print("Team {} has probability {} of winning!".format(i+1, round(self.roundwin[i][self.num_rounds-1], 4)))
             for j in range(0, self.num_rounds):
                 if j == 0:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
                 else:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
-                print("Payout for round {} is {}.".format(j, int(self.payout[i][j])))
+                print("Payout for round {} is {}".format(j, round(self.payout[i][j], 2)))
             print("\n")
                 
             
 
     def print_teams(self):
-        print("\nThere are {} teams in play!".format(len(self.team["id"])))
+        print("\nThere are {} teams in play!".format(len(self.teams_in_play)))
         for i in self.teams_in_play:
             print("Team {} has strength {}".format(int(self.team["id"][i]), int(self.team["strength"][i])))
         print("\n")
             
     def simulate_round(self):
+        if not self.not_over():
+            print("Game is already over!")
+            return
         print("Round{}!\nSimulating Round...".format(self.rounds))
         new_teams = []
         idx = self.teams_in_play
@@ -93,18 +96,19 @@ class SportsBracket:
         self.print_teams()
         self.rounds += 1
 
-    def over(self):
+    def not_over(self):
         if self.rounds <= self.num_rounds:
             return True
         else:
             print("Team {} has won the game!".format(int(self.teams_in_play[0])))
+            return False
 
 if __name__ == "__main__":
     num_teams = 4
     game = SportsBracket(num_teams)
     game.print_teams()
-    while(game.over()):
-        x = input()
+    while(game.not_over()):
         game.simulate_round()
+    
 
 
