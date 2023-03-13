@@ -65,7 +65,8 @@ class SportsBracket:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
                 else:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
-                self.pricing[i][j] = self.payout[i][j] + random.normalvariate(2, 3)
+                # self.pricing[i][j] = self.payout[i][j] 
+                self.pricing[i][j] = self.payout[i][j] + random.normalvariate(2, 2)
                 # print("Payout for round {} is {}".format(j, round(self.payout[i][j], 2)))
             # print("\n")
                 

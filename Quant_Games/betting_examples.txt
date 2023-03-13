@@ -1,3 +1,5 @@
+Casual (Uniformed) Betting Example:
+
 There are 8 teams in play!
 Team 1 has strength 100
 Team 2 has strength 700
@@ -14,7 +16,8 @@ For Team 1 with strength 100, a bet for round 1 costs 2.71
 For Team 2 with strength 700, a bet for round 1 costs 26.73
 For Team 3 with strength 700, a bet for round 1 costs 21.14
 For Team 4 with strength 500, a bet for round 1 costs 5.93
-For Team 5 with strength 400, a bet for round 1 costs 2.47For Team 6 with strength 800, a bet for round 1 costs 25.79
+For Team 5 with strength 400, a bet for round 1 costs 2.47
+For Team 6 with strength 800, a bet for round 1 costs 25.79
 For Team 7 with strength 200, a bet for round 1 costs 3.03
 For Team 8 with strength 700, a bet for round 1 costs 21.63
 
