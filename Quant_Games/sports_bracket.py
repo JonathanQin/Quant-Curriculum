@@ -8,6 +8,7 @@ class SportsBracket:
         if not math.log(num_teams, 2).is_integer():
             print("Please enter a power of 2 for the number of teams!")
             return
+        self.total_teams = num_teams
         self.n = num_teams
         self.rounds = 1
         self.num_rounds = int(math.log(num_teams, 2))
@@ -68,7 +69,11 @@ class SportsBracket:
                 # print("Payout for round {} is {}".format(j, round(self.payout[i][j], 2)))
             # print("\n")
                 
-            
+    def print_probabilities(self):
+        for i in range(int(self.total_teams)):
+            for j in range(int(self.num_rounds)):
+                print("Round {} probabilities: ".format(j + 1))
+                self.get_payouts(j + 1)
 
     def print_teams(self):
         print("\nThere are {} teams in play!".format(len(self.teams_in_play)))
@@ -149,6 +154,7 @@ if __name__ == "__main__":
     while(game.not_over()):
         game.get_pricing()
         game.simulate_round()
+    game.print_probabilities()
     
 
 

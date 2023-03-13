@@ -1,0 +1,63 @@
+There are 8 teams in play!
+Team 1 has strength 100
+Team 2 has strength 700
+Team 3 has strength 700
+Team 4 has strength 500
+Team 5 has strength 400
+Team 6 has strength 800
+Team 7 has strength 200
+Team 8 has strength 700
+
+
+Betting is starting for round 1! Which teams you wish to bet on (in a list / 'none'):
+For Team 1 with strength 100, a bet for round 1 costs 2.71
+For Team 2 with strength 700, a bet for round 1 costs 26.73
+For Team 3 with strength 700, a bet for round 1 costs 21.14
+For Team 4 with strength 500, a bet for round 1 costs 5.93
+For Team 5 with strength 400, a bet for round 1 costs 2.47For Team 6 with strength 800, a bet for round 1 costs 25.79
+For Team 7 with strength 200, a bet for round 1 costs 3.03
+For Team 8 with strength 700, a bet for round 1 costs 21.63
+
+
+6 2 
+You have placed a bet on team 6 for 25.793520520383332
+You have placed a bet on team 2 for 26.726099781108758
+
+
+Round1!
+Simulating Round...
+Team 2 beat team 1!
+Team 3 beat team 4!
+Team 6 beat team 5!
+Team 7 beat team 8!
+Betting is starting for round 2! Which teams you wish to bet on (in a list / 'none'): 
+For Team 2 with strength 700, a bet for round 2 costs 31.57
+For Team 3 with strength 700, a bet for round 2 costs 30.67
+For Team 6 with strength 800, a bet for round 2 costs 31.12
+For Team 7 with strength 200, a bet for round 2 costs 10.25
+
+
+3 7 
+You have placed a bet on team 3 for 30.66955226040003
+You have placed a bet on team 7 for 10.247491515091806
+
+
+Round2!
+Simulating Round...
+Team 3 beat team 2!
+Team 6 beat team 7!
+Betting is starting for round 3! Which teams you wish to bet on (in a list / 'none'):
+For Team 3 with strength 700, a bet for round 3 costs 59.52
+For Team 6 with strength 800, a bet for round 3 costs 56.88
+
+
+6 
+You have placed a bet on team 6 for 56.87780785352218
+
+
+Round3!
+Simulating Round...
+Team 6 beat team 3!
+Team 6 has won the game!
+You had 2.0 positions in team 6, giving profits of 200.0
+However, you spent 150.3144719305061 in total on bets, giving net profits of 49.6855280694939!
