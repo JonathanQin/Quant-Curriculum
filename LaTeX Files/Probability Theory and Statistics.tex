@@ -64,9 +64,44 @@ Therefore, differentiating \(M_X(t)\) \(i\) times and setting \(t = 0\) will giv
     \item Fourth Moment: Kurtosis, a measure of the thickness of tails. Excess kurtosis is kurtosis excess of the normal distribution. In finance, kurtosis is a measure of the extent of price fluctuations (how often prices move dramatically) and can be used to model risk in Value At Risk models.
 \end{enumerate}
 
-\paragraph{Example 1.1}
+\paragraph{Normal Moments Example}
 What is the moment-generating function of a standard normal distribution? What are the distribution's first, second, third, and fourth moments?
 \newline
 \newline
+\paragraph{Properties of Poisson Processes}
+Buses at a station arrive according to a Poisson process with an average arrival time of 10 minutes (0.1 / min). If you arrive at a random time, what is your expected waiting time? On average, how many minutes ago did the last bus leave?
+\newline
+\newline
+Poisson Process has occurs at constant mean rate \(\lambda\), events can not occur at the same time, and events occur independently. The Poisson distribution gives the number of events in some time interval \(t\) given expected number of events: 
+\[P(X = \lambda t) = \frac{\lambda t e^{-\lambda t}}{k!}\]
+Meanwhile, the exponential distribution gives the expected time between events, and it is a continuous and memory-less distribution:
+\[P(t) = \lambda e^{-\lambda t}\]
 
+\section{Quick Probability Problems}
+\paragraph{Problem 2.1 Tennis Match}
+Two tennis players are playing a 3 set tennis match. The match ends when a player wins two sets. The probability of a player winning each set is constant throughout the match. If you are given money to bet on whether the game finishes in 2 or 3 sets, which outcome should you bet on?
+\newline
+\newline
+\paragraph{Problem 2.2 Aces}
+You shuffle a deck of 52 cards and begin to draw cards one by one without replacement. How many cards do you expect to draw for you to draw your first ace?
+\newline
+\newline
+
+\section{Quant Trader Technical: Sports Brackets Betting}
+This is a technical interview question (45 minutes) that was asked by a trading firm in their first round this recruiting season. The problem summarizes perfectly the core concepts of probability we covered while serving as a good introduction to Game Theory. I will present a modified version of the game, as well as an explanation and my code implementation (and solution) to the problem afterward.
+
+\subsection{Sports Bracket System}
+There are \(n\) = \(2^m\) teams playing in a single elimination bracket for a championship. Each team has a strength between $100$ and \(100n\), not necessarily unique. If team A and team B face-off, the probability of team A winning is given by: 
+\[P(\textrm{A winning}) = \frac{\textrm{strength(A)}}{\textrm{strength(A) + strength(B)}}\]
+For example, if team A had strength 100 while team B had strength 200, team A would have a \(\frac{1}{3}\) chance of winning.
+\subsection{Game Betting System}
+At the start of each round, odds (prices) for each remaining team will be presented for the player to bet on. The bets are structured as follows: you are able to bet on each team winning the championship for some price $K$. If the team does win the entire bracket, the payoff for your bet is \$100. Otherwise, you win nothing. There is no limit on how many bets you may place on each team.
+\newline
+\newline
+For \(n\) = \(2^m\) teams playing in single elimination, $m$ rounds are needed to determine a victor, so there will be $m$ betting rounds as well. Each round, the odds for the remaining teams will be updated, but the final payout of \$100 remains the same.
+\newline
+\newline
+For example, if team A has betting odds of \$10 on Round 1, that means placing a bet on team A winning the entire bracket and the championship costs \$10 with a potential payout of \$100. Keep in mind that this means only "long" bets are possible - you are unable to explicitly "short" a team, other than going "long" on the opposing team.
+\subsection{Evaluation Metrics}
+At the end of the game, you are presented with your net profits, given by the total winnings less the total betting expenses. While net profits are one way to evaluate performance, more important is formulating a winning strategy that is explainable and successful long-term. It is possible to face a net loss even with a game theory optimal strategy due to chance. The next question becomes: after determining a profitable strategy, how can I minimize risk while implementing this strategy?
 \end{document}
