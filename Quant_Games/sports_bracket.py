@@ -30,7 +30,7 @@ class SportsBracket:
     def generate_teams(self):
         for i in self.teams_in_play:
             self.team["id"][i] = int(i + 1)
-            self.team["strength"][i] = int(100 * random.randint(1, 8))
+            self.team["strength"][i] = int(100 * random.randint(1, self.total_teams))
         # self.team["strength"][0] = 100
         # self.team["strength"][1] = 400
         # self.team["strength"][2] = 300
