@@ -19,8 +19,12 @@ class SportsBracket:
         self.roundwin = np.zeros((self.n, self.num_rounds))
         self.totalwin = np.ones((self.n, self.num_rounds))
         self.payout = np.zeros((self.n, self.num_rounds))
+        self.pricing = np.zeros((self.n, self.num_rounds))
+        self.positions = np.zeros((self.n))
         self.generate_teams()
         self.generate_probabilities()
+        self.total_bets = 0
+        self.total_winnings = 0
                 
     def generate_teams(self):
         for i in self.teams_in_play:
@@ -60,6 +64,7 @@ class SportsBracket:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
                 else:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
+                self.pricing[i][j] = self.payout[i][j] + random.normalvariate(2, 3)
                 # print("Payout for round {} is {}".format(j, round(self.payout[i][j], 2)))
             # print("\n")
                 
@@ -96,42 +101,53 @@ class SportsBracket:
         self.rounds += 1
         
     def get_payouts(self, round_num = -1):
-        if round_num is -1:
+        if round_num == -1:
             round_num = self.rounds
         for i in range(0, len(self.team.index.to_list())):
-            j = round_num-1
-            if j == 0:
-                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
-            else:
-                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
+            j = round_num - 1
             print("For Team {}, payout for round {} is {}".format(i + 1, round_num, round(self.payout[i][j], 2)))
         print("\n")
         
     def get_pricing(self, round_num = -1):
-        if round_num is -1:
+        if round_num == -1:
             round_num = self.rounds
+            print("Betting is starting for round {}! Which teams you wish to bet on (in a list / 'none'): ".format(self.rounds) )
+            betting = True
         for i in self.teams_in_play:
             j = round_num-1
-            if j == 0:
-                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
-            else:
-                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
-            noise = random.normalvariate(2, 3)
-            print("For Team {}, a bet for round {} costs {}".format(i + 1, round_num, round(self.payout[i][j] + noise, 2)))
+            print("For Team {} with strength {}, a bet for round {} costs {}".format(i + 1, int(self.team["strength"][i]), round_num, round(self.pricing[i][j], 2)))
         print("\n")
+        if betting:
+            bet_list = input()
+            if(bet_list.lower() == "none"):
+                print("You have made no bets this round\n")
+            else:
+                for i in bet_list:
+                    if(i == " "):
+                        continue
+                    pos = int(i)
+                    self.total_bets += self.pricing[pos-1][round_num-1]
+                    self.positions[pos-1] += 1
+                    print("You have placed a bet on team {} for {}".format(i, self.pricing[pos-1][round_num-1]))
+                print("\n")
 
     def not_over(self):
         if self.rounds <= self.num_rounds:
             return True
         else:
-            print("Team {} has won the game!".format(int(self.teams_in_play[0]) + 1))
+            winning_team = int(self.teams_in_play[0])
+            self.total_winnings = self.positions[winning_team] * 100
+            print("Team {} has won the game!".format(winning_team + 1))
+            print("You had {} positions in team {}, giving profits of {}".format(self.positions[winning_team], winning_team + 1, self.total_winnings))
+            print("However, you spent {} in total on bets, giving net profits of {}!".format(self.total_bets, self.total_winnings - self.total_bets))
             return False
 
 if __name__ == "__main__":
-    num_teams = 4
+    num_teams = 8
     game = SportsBracket(num_teams)
     game.print_teams()
     while(game.not_over()):
+        game.get_pricing()
         game.simulate_round()
     
 
