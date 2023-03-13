@@ -53,16 +53,15 @@ class SportsBracket:
                     if i != k and played[i][k] == 0:
                         self.roundwin[i][j] += self.roundwin[i][j-1] * self.roundwin[k][j-1] * self.pwin[i][k]
                     played[i][k] = 1
-                # print(self.roundwin[i][j])
         for i in self.teams_in_play:
-            print("Team {} has probability {} of winning!".format(i+1, round(self.roundwin[i][self.num_rounds-1], 4)))
+            # print("Team {} has probability {} of winning!".format(i+1, round(self.roundwin[i][self.num_rounds-1], 4)))
             for j in range(0, self.num_rounds):
                 if j == 0:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
                 else:
                     self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
-                print("Payout for round {} is {}".format(j, round(self.payout[i][j], 2)))
-            print("\n")
+                # print("Payout for round {} is {}".format(j, round(self.payout[i][j], 2)))
+            # print("\n")
                 
             
 
@@ -93,8 +92,33 @@ class SportsBracket:
         # self.team = self.team[self.team['id'].isin(new_teams)]
         self.teams_in_play = new_teams
         self.n = len(self.teams_in_play)
-        self.print_teams()
+        # self.print_teams()
         self.rounds += 1
+        
+    def get_payouts(self, round_num = -1):
+        if round_num is -1:
+            round_num = self.rounds
+        for i in range(0, len(self.team.index.to_list())):
+            j = round_num-1
+            if j == 0:
+                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
+            else:
+                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
+            print("For Team {}, payout for round {} is {}".format(i + 1, round_num, round(self.payout[i][j], 2)))
+        print("\n")
+        
+    def get_pricing(self, round_num = -1):
+        if round_num is -1:
+            round_num = self.rounds
+        for i in self.teams_in_play:
+            j = round_num-1
+            if j == 0:
+                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1-j]) * 100
+            else:
+                self.payout[i][j] = (self.roundwin[i][self.num_rounds-1])/(self.roundwin[i][j-1]) * 100
+            noise = random.normalvariate(2, 3)
+            print("For Team {}, a bet for round {} costs {}".format(i + 1, round_num, round(self.payout[i][j] + noise, 2)))
+        print("\n")
 
     def not_over(self):
         if self.rounds <= self.num_rounds:
