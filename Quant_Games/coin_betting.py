@@ -6,4 +6,4 @@ import math
 class CoinBetting:
     def __init__(self, bias):
         if bias < 0 or bias > 1:
-            print("Bias should be between.")
+            print("Bias should be between 0 and 1.")
