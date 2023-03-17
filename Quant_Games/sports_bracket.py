@@ -31,10 +31,10 @@ class SportsBracket:
         for i in self.teams_in_play:
             self.team["id"][i] = int(i + 1)
             self.team["strength"][i] = int(100 * random.randint(1, self.total_teams))
-        # self.team["strength"][0] = 100
-        # self.team["strength"][1] = 400
-        # self.team["strength"][2] = 300
-        # self.team["strength"][3] = 400
+        # self.team["strength"][0] = 100, 31/520
+        # self.team["strength"][1] = 400, 212/490
+        # self.team["strength"][2] = 300, 207/980
+        # self.team["strength"][3] = 400, 112/350
         
     def generate_probabilities(self):
         played = np.zeros((self.n, self.n))
@@ -71,10 +71,9 @@ class SportsBracket:
             # print("\n")
                 
     def print_probabilities(self):
-        for i in range(int(self.total_teams)):
-            for j in range(int(self.num_rounds)):
-                print("Round {} probabilities: ".format(j + 1))
-                self.get_payouts(j + 1)
+        for j in range(int(self.num_rounds)):
+            print("Round {} probabilities: ".format(j + 1))
+            self.get_payouts(j + 1)
 
     def print_teams(self):
         print("\nThere are {} teams in play!".format(len(self.teams_in_play)))
@@ -105,6 +104,7 @@ class SportsBracket:
         self.n = len(self.teams_in_play)
         # self.print_teams()
         self.rounds += 1
+        print("\n")
         
     def get_payouts(self, round_num = -1):
         if round_num == -1:
@@ -145,7 +145,7 @@ class SportsBracket:
             self.total_winnings = self.positions[winning_team] * 100
             print("Team {} has won the game!".format(winning_team + 1))
             print("You had {} positions in team {}, giving profits of {}".format(self.positions[winning_team], winning_team + 1, self.total_winnings))
-            print("However, you spent {} in total on bets, giving net profits of {}!".format(self.total_bets, self.total_winnings - self.total_bets))
+            print("However, you spent {} in total on bets, giving net profits of {}!\n".format(self.total_bets, self.total_winnings - self.total_bets))
             return False
 
 if __name__ == "__main__":
