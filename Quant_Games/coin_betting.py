@@ -13,8 +13,8 @@ class CoinBetting:
         self.round = 1
         self.bets = []
         self.inference_probability = 0.5
-        self.heads = 0
-        self.tails = 0
+        self.heads = 1
+        self.tails = 1
         self.flips = []
         self.start()
         
@@ -32,7 +32,6 @@ class CoinBetting:
             print("Player {} has ${} remaining!".format(i+1, round(self.players[i], 4)))
             
     def simulate_round(self):
-        self.round += 1
         flip_res = ""
         res = random.random()
         if res > self.bias:
@@ -54,6 +53,7 @@ class CoinBetting:
             if i > 0:
                 self.players[i] += diff_res[i-1]
         
+        self.round += 1
         self.start()
         
     
@@ -74,7 +74,7 @@ class CoinBetting:
                 bet_res = (res <= self.inference_probability)
                 p = bet_res * self.inference_probability + (1-bet_res) * (1-self.inference_probability)
                 b = bet_res * (1 / self.inference_probability) + (1-bet_res) * (1 / self.inference_probability)
-                bet_amount = self.players[i] * self.kelly(p, b)
+                bet_amount = self.players[i] * self.kelly(p, b) + random.normalvariate(0, 10)
                 heads_bet += bet_res * bet_amount
                 tails_bet += (1-bet_res) * bet_amount
                 pot += bet_amount
@@ -105,7 +105,7 @@ class CoinBetting:
         return pot, winnings, diff_res
     
     def kelly(self, p, b):
-        return max(min(p - ((1 - p)/b), 1/5), 1/100)
+        return max(min(p - ((1 - p)/b), 1/5), 1/50)
         
                     
 if __name__ == "__main__":
