@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{blindtext}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+
+\title{
+
+\begin{center} \textbf{Quant Curriculum Week 3}
+
+Game Theory \end{center}
+}
+
+\author{Jonathan Qin}
+\date{March 23, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction to Game Theory }
+
+By modeling and studying the behaviors of agents under competition, rules and concepts can be derived and applied to real situations. Game Theory, then, is a theoretical framework built from studying games to determine the best decisions in any "game-like" situation (and therefore predict the behavior of other "optimal" competitors). Abstract professional sports plays, crazy poker reads, and politicians moving towards centrist positions during elections can all be explained by Game Theory. A solid understanding of Game Theory can therefore help improve decision quality in your own life, investment related or otherwise. 
+
+\subsection{Defining a Game}
+
+We define a general game as containing the following elements:
+\begin{enumerate}
+    \item There are two or more agents
+    \item At least one agent has a choice of actions
+    \item The game has a set of outcomes for each agent
+    \item The outcomes depend on action choices
+\end{enumerate}
+
+\paragraph{Simple Card Game}
+Two players, A and B, begin with 21 cards. Players alternate in taking turns, and each turn a player can remove 1, 2, or 3 cards from the deck. The player who draws the last card is the winner. What is the winning strategy? If player A moves first, how many cards should they remove?
+\newline
+\newline
+
+
+A choice of actions is a \textbf{strategy}, with each choice at each possible decision point being a \textbf{strategic option}, and the outcomes have associated \textbf{payoffs}. A \textbf{zero-sum} game is one where the payoffs to all agents sum to zero (every gain has an associated loss). Games may be sequential or simultaneous(chess versus rock/paper/scissors) and deterministic or stochastic (chess versus poker). Sometimes, there may be hidden information in games, where one agent has more knowledge than another. 
+
+\paragraph{Odds and Evens}
+Two players, A and B, play a zero-sum game where each player either conceals 0 or 1 pennies in their hands. Hands are revealed simultaneously. A wins if the total number of pennies is even, and B wins if the total number is odd. The payout for the winner is 1. What is the payout for the loser? Imagine you are one of the players, and you are forced to play every day - what is your strategy?
+\newline
+\newline
+
+
+
+A \textbf{strategy pair} is a pair of strategies for both players. A strategy pair is \textbf{optimal} if neither player can change their strategies to improve their expectation (payoff). A strategy is optimal if it is part of any optimal strategy pair. 
+\newline
+\newline
+Call some opponent that always knows your strategy and always plays the maximally exploitative strategy against you a \textbf{nemesis}. If you change your strategy, the nemesis changes instantly in response. An optimal strategy must have maximum EV against the Nemesis. Strategy sets satisfy a \textbf{Nash Equilibrium} if no player can increase their expectation. 
+
+\paragraph{Optimal Strategy Rule for Zero-Sum Two-Player Games}
+\begin{enumerate}
+    \item When mixed strategies are allowed, optimal strategies always exist.
+    \item Corollary: If an optimal strategy contains a mixed strategy, the expectation of each alternative must be equal against the opponent's optimal strategy
+\end{enumerate}
+
+\paragraph{Odds and Evens Modified}
+Two players, A and B, play a zero-sum game where each player either conceals 0 or 1 pennies in their hands. Hands are revealed simultaneously. A wins if the total number of pennies is even, and B wins if the total number is odd. The payout for the winner is the total number of pennies in the game, and the payout for the loser is the opposite amount. Imagine you are one of the players - what is your strategy?
+\newline
+\newline
+
+\subsection {Poker Mini-Games}
+Poker is a great but complicated game to study for game theory and quants. We begin by breaking the game down into more manageable pieces to gain some insight. 
+
+\paragraph{Half Street Ex-Showdown Games}
+Half-street games have the following characteristics: 
+\begin{enumerate}
+    \item The first player (conventionally called X) checks in the dark.
+    \item The second player (conventionally called Y) then has the option to either check or may 
+    \item If Y bets, X always has the option to call, in which case there is a showdown, and may 
+additionally have the option to fold (but not raise). If Y checks, there is a showdown. 
+We will make reference to the value of the game. This is the expectation for the second player, 
+Y, assuming both sides play optimally. We will also only consider money that changes hands as 
+a result of the betting in our game. This value is the ex-showdown value. This can include bets 
+and calls that X and Y make on the streets of our game. It can also include the swing of a pot that 
+moves from one player to the other as the result of a successful bluff.
+bet some amount according to the rules of the game.
+\end{enumerate}
+Considering these rules and evaluation metrics, what is the optimal strategy for each player if Y knows the entire game state at the beginning of the game?
+
+\paragraph{Range 0-1 Games} 
+Rather than being dealt a discrete hand, players are dealt a hand scored within range of [0,1], where 0 is the strongest hand and 1 is the weakest. Consider the following [0-1] games: \newline
+\begin{enumerate}
+    \item A single half-street of betting with no folding allowed, where player X is forced to check and must call Y's bet, if Y chooses to bet. Note that for this type of game (where no folding is allowed) the pot size is irrelevant.
+    \item Player X is now allowed to fold.
+\end{enumerate}
+
+\end{document}
