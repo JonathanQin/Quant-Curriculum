@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{blindtext}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
+
+\title{
+
+\begin{center} \textbf{Quant Problem Collection}
+
+Collection of Quant Interview Problems \end{center}
+}
+
+\author{Jonathan Qin}
+\date{March 24, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+I will regularly update this document with brainteasers and quant questions I encounter. Questions will be sorted roughly by topic, tagged by specific keys, and assigned a rough difficulty level from 1-3. Happy solving!
+
+\section{Probability Theory}
+\subsection{Expected Value}
+\subsubsection{Color Switches}
+You are given an urn with 100 balls (50 black and 50 white). You pick balls from the urn one by one without replacements until all the balls are out. A black followed by a white or a white followed by a black is "a color change." Calculate the expected number of color changes if the balls are picked randomly from the urn.
+\subsubsection{Drunk Ant}
+An ant is standing on one corner of a cube & can only walk on the edges. The ant is drunk, and it moves randomly from any corner by choosing any edge! What is the expected number of edges the ant travels to reach the opposite corner?
+\subsubsection{Noodles}
+You have 100 noodles in your soup bowl. You are told to take two ends of some noodles (each end on any noodle has the same probability of being chosen) in your bowl and connect them. You continue until there are no free ends. What is the expected number of loops? What is the probability of making one large loop which includes every noodle?
+\subsubsection{Distinct Draws}
+Given the set of numbers from 1 to n: { 1, 2, 3 .. n } We draw n numbers randomly (with uniform distribution) from this set (with replacement). What is the expected number of distinct values that we would draw?
+\subsubsection{Greed for Ace}
+What is the expected number of cards that need to be turned over in a regular 52-card deck in order to see the first ace?
+\subsection{Counting and Probability}
+\subsubsection{Rolling Bullets}
+Two bullets are put into a gun's round barrel consecutively, which has a capacity of 6. The gun is shot once, but no bullet is fired. Does rolling the barrel (shuffling) before the next shot increases the probability of firing a bullet?
+\section{Discrete Math}
+\subsection{Sequences}
+\subsubsection{Weird Sequences}
+What is/are the next term(s) in the sequence:\newline
+a) 1, 11, 21, 1211, 111221, ?\newline
+b) 10, 11, 12, 13, 14, 20, 22, 101, ?, ?\newline
+c) (This a sequence made by only 2 & 1): 2,2,1,1,2,1,2,2,1, ?, ?....
+\subsubsection{Consecutive Sums}
+An optimist and a pessimist are examining a sequence of real numbers. The optimist remarks, ‘Oh jolly! The sum of any eight consecutive terms is positive!’ But the pessimist interjects, ‘Not so fast; the sum of any five consecutive terms is negative.’ Can they both be right? At most how large can this sequence be?
+\section{Strategy}
+\subsection{Mathematical}
+\subsubsection{Prisoner's Hat}
+100 prisoners are lined up and assigned a random hat, either red or blue. There can be any number of red hats. Each prisoner can see the hats in front of him but not behind. Starting with the prisoner in the back of the line and moving forward, they must each, in turn, say only one word, which must be "red" or "blue". If the word matches their hat color they are released, if not, they are killed on the spot. They can hear each others answers, no matter how far they are on the line. A friendly guard warns them of this test one hour beforehand and tells them that they can formulate a plan whereby following the stated rules, 99 of the 100 prisoners will definitely survive, and 1 has a 50/50 chance of survival. What is the plan to achieve the goal?
+\subsubsection{Fork in the Road}
+A traveler wants to go to the mystic. He meets a pair of twins at a fork in the road: one path leads to the jungle, the other to the mystic. One of the twins always says the truth, the other always lies. What yes/no question should he ask one of the twins to determine the path that goes to the mystic?
+
+
+\end{document}
