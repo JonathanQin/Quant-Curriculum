@@ -4,6 +4,12 @@
 \usepackage[a4paper, total={6in, 9.5in}]{geometry}
 \usepackage{enumitem}
 
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+
+\DeclareRobustCommand{\bbone}{\text{\usefont{U}{bbold}{m}{n}1}}
+
+\DeclareMathOperator{\EX}{\mathbb{E}}% expected value
 
 \title{
 
@@ -24,6 +30,71 @@ I will regularly update this document with brainteasers and quant questions I en
 
 \section{Probability Theory}
 \subsection{Uniform Random Variables}
+\begin{enumerate}
+    \item \textbf{Sum Exceedance I}. Let \(X_1\), \(X_2\), ... be IID Unif(0, 1) random variables and let \(N = \textup{min} \{ n:X_1 + \cdots + X_n > \ln(2) \} \). Find \(\EX[N]\).
+    \\
+    \\
+    \\
+    \\
+    \\
+    \textbf{Solution}. We take a geometric approach. Mapping each random variable \(X_i\) to an interval \([0, 1]\) on axis \(i\), we observe:
+    \begin{equation}
+        P(N = i) = \textup{Volume of n-Simplex} = \frac{\ln(2)^i}{i!}\\
+    \end{equation}
+    \begin{equation}
+        \EX(N) = \sum_{n=1}^{\infty} \frac{\ln(2)^i}{i!} = e^{\ln(2)} = 2
+    \end{equation}
+    Therefore, \(\boxed{\EX(N) = 2}\).
+
+\end{enumerate}
+\subsection{Markov Chains and Martingales}
+\begin{enumerate}
+    \item \textbf{Expecting Jacks}. Bill draws from a deck of cards repeatedly, with replacement. What is the expected number of draws to get four jacks in a row?
+    \\
+    \\
+    \\
+    \\
+    \\
+    \textbf{Solution 1}. This problem can be solved with classical counting strategies. Note that the isolated probability of obtaining four Jacks in a row is $(1/13)^4$; therefore we expect on average to conduct \(n = 13^4\) independent trials before obtaining four Jacks in a row. Computing the probability of each particular trial, we note the trials failing on the $i$th draw occur with probability $P = 12/13^i$. Calculating the expected value gives:
+    \begin{equation}
+        \EX[n] = 13^4(\sum_{i=1}^{4} \frac{12}{13^i} + \frac{4}{13^4}) = 30940
+    \end{equation}
+    Therefore, we expect $\boxed{n = 30940}$ draws before getting four jacks in a row.
+
+    \textbf{Solution 2}. We take a classic Markov Chain approach and model the expected values with the following system of equations:
+    \begin{align*}
+            E_0 = 1 + \frac{1}{13}E_1 + \frac{12}{13}E_0 \\
+            E_1 = 1 + \frac{1}{13}E_2 + \frac{12}{13}E_0 \\
+            E_2 = 1 + \frac{1}{13}E_3 + \frac{12}{13}E_0 \\
+            E_3 = 1 + \frac{12}{13}E_0
+    \end{align*}
+    
+        
+    \item \textbf{Circular Hop}. You are in a circle with $100$ points labeled $0 - 99$ clockwise. You start at $1$. You move one unit left or right at each turn with equal probability. What is the probability you visit point $99$ before point $0$? What is the expected time (number of turns) to hit $0$?
+    \\
+    \\
+    \\
+    \\
+    \\
+    \textbf{Solution}. We take a martingale approach. Note that a martingale stopped at a stopping time is a martingale. To solve the first part, we model a random walk with $S$ with starting point $y = 0$ and stopping conditions $y = -1$ and $y = 98$. We observe:
+    \begin{equation}
+        \EX(S_n) = 98 (P(98)) - (1 - P(98)) = 0
+    \end{equation}
+    Solving, we get \boxed{$P(98) =1/99$}.
+    \\
+    \\
+    To solve the second part, we model a random walk $S$ with starting point at $y = 0$ and the stopping conditions at $y = -1$ and $y = 99$ we observe:
+    \begin{equation}
+        \EX(S_n) = 99 (1 - P(-1)) - P(-1) = 0
+    \end{equation}
+    Solving, we get \(P(-1) = \frac{99}{100}\) and \(P(99) = \frac{1}{100}\). To solve for the expected time, we note that $\EX[S_n^2] - n = 0$:
+    \begin{equation}
+        n = \frac{1}{100}99^2 + \frac{99}{100}(-1)^2 = \frac{9900}{100} = 99
+    \end{equation}
+    Therefore, the expected number of turns to hit $0$ is \boxed{$n = 99$}.
+\end{enumerate}
+
+\subsection{Order Statistics}
 \begin{enumerate}
     \item 
 \end{enumerate}
